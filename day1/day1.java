@@ -32,6 +32,8 @@ public class day1 {
         System.out.println(maxCal);
 
         br.close();
-
+        //part 2
+        Collections.sort(list, Collections.reverseOrder());
+        System.out.println(list.get(0)+list.get(1)+list.get(2));
     }
 }
