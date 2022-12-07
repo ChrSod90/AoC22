@@ -10,17 +10,18 @@ public class day7 {
         br.close();
     }
 
-private static class FClass {
-    String name;
-    int size = 0;
-    boolean file = true;
-    List<FClass> subElements = new ArrayList<>();
-    FClass parent = null;
+    private static class FClass {
+        String name;
+        int size = 0;
+        boolean file = true;
+        List<FClass> subElements = new ArrayList<>();
+        FClass parent = null;
 
-    FClass(int size, String name, boolean file, FClass parent) {
-        this.size = size;
-        this.name = name;
-        this.file = file;
-        this.parent = parent;
+        FClass(int size, String name, boolean file, FClass parent) {
+            this.size = size;
+            this.name = name;
+            this.file = file;
+            this.parent = parent;
+        }
     }
 }
