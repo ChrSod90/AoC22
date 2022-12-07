@@ -5,10 +5,12 @@ import java.util.*;
 
 public class day4 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("i:/code/AoC22/day4/input.test"));
+        BufferedReader br = new BufferedReader(new FileReader("i:/code/AoC22/day4/input"));
 
         String line;
         int count = 0;
+        int countp2 = 0;
+        int totalSections=0;
         while ((line = br.readLine()) != null) {
             String[] groupSections = line.split(",");
             String[] sectionA = groupSections[0].split("-");
@@ -24,8 +26,16 @@ public class day4 {
             }else if (startA >= startB && endA <= endB) {
                 count++;
             }
+            //part2
+            if (startA > endB) {
+                countp2++;
+            }else if (startB > endA) {
+                countp2++;
+            }
+            totalSections++;
         }
         System.out.println(count);
+        System.out.println(totalSections-countp2);
         br.close();
     }
 }
