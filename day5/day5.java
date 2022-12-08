@@ -63,11 +63,18 @@ public class day5 {
             int amount = Integer.parseInt(foo[1]);
             int fromStack = Integer.parseInt(foo[3]);
             int toStack = Integer.parseInt(foo[5]);
-
+            Stack tmp = new Stack<>();
             for (int n = 0; n < amount; n++) {
-                stacks.get(toStack-1).push(stacks.get(fromStack-1).pop());
+                tmp.push(stacks.get(fromStack-1).pop());
+                //System.out.println("tmp: " + tmp.peek());
                 //System.out.println("stack " + toStack + stacks.get(toStack-1));
             }
+            for (int i = 0; i < amount; i++) {
+                stacks.get(toStack-1).push(tmp.pop().toString());
+            }
+        
+                
+            
         }
         for (Stack<String> stack : stacks) {
             if (!stack.empty()) {
