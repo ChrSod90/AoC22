@@ -5,6 +5,11 @@ import java.util.*;
 
 public class day7 {
     public static void main(String[] args) throws IOException {
+        FClass root = new FClass(0, "/", false, null);
+        FClass curr = root;
+
+        List<FClass> ft = new ArrayList<>();
+
         BufferedReader br = new BufferedReader(new FileReader("i:/code/AoC22/day7/input.test"));
         String line;
         while ((line = br.readLine()) != null) {
@@ -12,18 +17,21 @@ public class day7 {
             if (commands[0].equals("$")) {
                 if (commands[1].equals("cd")) {
                     if (commands[2].equals("/")) {
-                        //Do root shit
-                    }else if (commands[2].equals("..")) {
-                        //Get parent
-                    }else{
-                        //enter sub dir
+                        curr = root;
+                    } else if (commands[2].equals("..")) {
+                        curr = curr.parent;
+                    } else {
+                        FClass fc = new FClass(0, line, false, curr);
+                        ft.add(fc);
+                        curr = fc;
                     }
                 }
-            }else if (commands[0].equals("dir")) {
-                //create sub dirr to curr dir
-                
-            }else{
-                //add files to curr dirr?
+            } else if (!commands[0].equals("dir")) {
+                curr.size = Integer.parseInt(commands[0]);
+                if (curr.parent != null) {
+                    curr.parent.size += curr.size;
+                    System.out.println(curr.parent.size);
+                }            
             }
         }
         br.close();
