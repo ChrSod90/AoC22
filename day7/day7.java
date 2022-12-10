@@ -52,12 +52,16 @@ public class day7 {
         ArrayList<Node> dirs = new ArrayList<>();
         rec(root, dirs);
         int total = 0;
+        int freeSpace = 70000000 - root.getTotalCh();
+        int toFreeSpace = 30000000 - freeSpace;
+        System.out.println(toFreeSpace);
+        Collections.sort(dirs);
         for (Node n : dirs) {
-            if (n.getTotalCh() <= 100000) {
-                total += n.getTotalCh();
+            if (n.getTotalCh() >= toFreeSpace) {
+                System.out.println(n.getTotalCh());
+                break;
             }
         }
-        System.out.println(total);
     }
 
     public static int getTotal(Node n) {
@@ -83,7 +87,7 @@ public class day7 {
     }
 }
 
-abstract class Node {
+abstract class Node implements Comparable<Node>{
     String name;
     ArrayList<Node> children;
     Node parent;
@@ -113,6 +117,11 @@ abstract class Node {
     @Override
     public String toString() {
         return String.valueOf(this.getTotalCh());
+    }
+
+    @Override
+    public int compareTo(Node o) {
+        return this.getTotalCh() - o.getTotalCh();
     }
 }
 
