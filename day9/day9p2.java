@@ -16,7 +16,7 @@ public class day9p2 {
         for (int i = 0; i < 10; i++) {
             rope.add(new ArrayList<>());
         }
-        for (ArrayList r : rope) {
+        for (ArrayList<Integer> r : rope) {
             r.add(0);
             r.add(0);
         }
@@ -32,8 +32,8 @@ public class day9p2 {
                 for (int i = 0; i < nSteps; i++) {
                     step(m[0], rope.get(j));
                     tailFollow(rope.get(j), rope.get(j+1), last);
-                     System.out.println("head: " + rope.get(0) + " " + rope.get(1));
-                    System.out.println("tail: " + rope.get(0) + " " + rope.get(1));
+                    // System.out.println("head: " + head.get(0) + " " + head.get(1));
+                    // System.out.println("tail: " + tail.get(0) + " " + tail.get(1));
                 }
             }
         }
@@ -42,6 +42,7 @@ public class day9p2 {
     }
 
     private static void tailFollow(ArrayList<Integer> head, ArrayList<Integer> tail, boolean last) {
+        
         int diffX = Math.abs(tail.get(0) - head.get(0));
         int diffY = Math.abs(tail.get(1) - head.get(1));
 
