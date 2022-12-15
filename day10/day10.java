@@ -21,6 +21,7 @@ public class day10 {
                         || cycleCount == 220) {
                     sigSum += sigStrength;
                 }
+                draw(cycleCount, xReg);
             }
             if (s[0].equals("addx")) {
                 cycleCount += 1;
@@ -29,7 +30,8 @@ public class day10 {
                         || cycleCount == 220) {
                     sigSum += sigStrength;
                 }
-                System.out.println(cycleCount + " : " + xReg + " : " + sigStrength);
+                draw(cycleCount, xReg);
+                //System.out.println(cycleCount + " : " + xReg + " : " + sigStrength);
 
                 cycleCount += 1;
                 xReg += Integer.parseInt(s[1]);
@@ -38,10 +40,21 @@ public class day10 {
                         || cycleCount == 220) {
                     sigSum += sigStrength;
                 }
-            }
-            System.out.println(cycleCount + " : " + xReg + " : " + sigStrength);
+                draw(cycleCount, xReg);
 
+            }
         }
-        System.out.println(sigSum);
+    }
+    private static void draw(int cycleCount, int x) {
+        int currPixel = (cycleCount % 40);
+
+        if (currPixel < x || currPixel > x + 2) {
+            System.out.print(".");
+        } else {
+            System.out.print("#");
+        }
+        if (currPixel == 0) {
+            System.out.println();
+        }
     }
 }
