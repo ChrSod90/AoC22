@@ -50,9 +50,10 @@ public class Monkey implements Comparable<Monkey> {
                     }
                     break;
             }
-            curVal = curVal/3;
-            curVal = curVal % total;
+            //Part 1: curVal = curVal/3;
+            //part2:
 
+            curVal = curVal % total;
             if (curVal % divisibility == 0) {
                 monkeys.get(trueMonkey).itemsHeld.add(curVal);
             } else {

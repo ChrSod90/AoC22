@@ -26,17 +26,17 @@ public class day11 {
             total *= div;
         }
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10000; i++) {
             for (Monkey m : monkeys) {
                 m.inspectItems(monkeys, total);
                 // System.out.println("monk " + i + " : " + m.itemsInspected);
             }
         }
         Collections.sort(monkeys);
-        /*for (Monkey m : monkeys) {
+        for (Monkey m : monkeys) {
             System.out.println(m.itemsInspected);
             System.out.println(m.itemsHeld);
-        } */
-        System.out.println(monkeys.get(0).itemsInspected * monkeys.get(1).itemsInspected);
+        } 
+        System.out.println((long)monkeys.get(0).itemsInspected * (long)monkeys.get(1).itemsInspected);
     }
 }
