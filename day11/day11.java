@@ -6,7 +6,7 @@ import java.util.*;
 
 public class day11 {
     public static void main(String[] args) throws Exception {
-        String input = Files.readString(Paths.get("i:/code/AOC22/day11/input.test"));
+        String input = Files.readString(Paths.get("i:/code/AOC22/day11/input"));
         String[] monkeysInput = input.split("\r?\n\r?\n");
 
         ArrayList<Monkey> monkeys = new ArrayList<>();
@@ -33,9 +33,10 @@ public class day11 {
             }
         }
         Collections.sort(monkeys);
-        for (Monkey m : monkeys) {
+        /*for (Monkey m : monkeys) {
             System.out.println(m.itemsInspected);
-        }
+            System.out.println(m.itemsHeld);
+        } */
         System.out.println(monkeys.get(0).itemsInspected * monkeys.get(1).itemsInspected);
     }
 }

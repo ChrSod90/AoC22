@@ -50,7 +50,7 @@ public class Monkey implements Comparable<Monkey> {
                     }
                     break;
             }
-
+            curVal = curVal/3;
             curVal = curVal % total;
 
             if (curVal % divisibility == 0) {
@@ -65,6 +65,6 @@ public class Monkey implements Comparable<Monkey> {
 
     @Override
     public int compareTo(Monkey o) {
-        return o.itemsInspected-this.itemsInspected;
+        return o.itemsInspected - this.itemsInspected;
     }
 }
