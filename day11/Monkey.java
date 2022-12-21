@@ -65,7 +65,6 @@ public class Monkey implements Comparable<Monkey> {
 
     @Override
     public int compareTo(Monkey o) {
-        // TODO Auto-generated method stub
-        return 0;
+        return o.itemsInspected-this.itemsInspected;
     }
 }
